@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Playlists</h1>
+<h1>games</h1>
 
 <div class='row'>
-    {% for playlist in playlists %}
+    {% for item in game %}
     <div class='col-md-3'>
-        <h2><a href='/playlists/{{ playlist._id }}'>{{ playlist.title }}</a></h2>
-        <small>{{ playlist.description }}</small>
+        <h2><a href='/games/{{ item._id }}'>{{ item.title }}</a></h2>
+        <small>{{ item.description }}</small>
     </div>
     {% endfor %}
 </div>

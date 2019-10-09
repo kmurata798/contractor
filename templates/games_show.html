@@ -1,0 +1,37 @@
+<!-- SHOWS THE game THAT THE USER CLICKS!-->
+<a href='/games'>Back to Home</a>
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-3'>
+        <h1>{{ game.title }}</h1>
+        <h2>{{ game.description }}</h2>
+
+        <!-- <h3>{{ game.images}}</h3> -->
+        <div class="card">
+            <div class="card-body">
+                <img src="{{ game.images }}" alt="game image" class="img-thumbnail">
+            </div>
+        </div>
+
+
+        <hr>
+
+
+
+    </div>
+</div>
+
+<p><a href='/games/{{ game._id }}/edit'>Edit</a></p>
+<p>
+    <form method='POST' action='/games/{{game._id}}/delete'>
+        <input type='hidden' name='_method' value='DELETE'>
+        <button class='btn btn-primary' type='submit'>Delete</button>
+    </form>
+</p>
+
+<hr>
+
+<!-- Comment form -->
+
+
+</div>
+</div>
