@@ -33,6 +33,15 @@ def playlists_new():
     return render_template('playlists_new.html', playlist={}, title='New Playlist')
 
 
+@app.route('/playlists/<playlist_id>/edit')
+def playlists_edit(playlist_id):
+    """Show the edit form for a playlist."""
+    playlist = playlists.find_one({'_id': ObjectId(playlist_id)})
+    return render_template('playlists_edit.html', playlist=playlist, title='Edit Playlist')
+
+# ^ BOTH USE THE PARTIALS IN THE HTML FILES! ^
+
+
 @app.route('/playlists', methods=['POST'])
 def playlists_submit():
     """Submit a new playlist."""
@@ -50,13 +59,6 @@ def playlists_show(playlist_id):
     """Show a single playlist."""
     playlist = playlists.find_one({'_id': ObjectId(playlist_id)})
     return render_template('playlists_show.html', playlist=playlist)
-
-
-@app.route('/playlists/<playlist_id>/edit')
-def playlists_edit(playlist_id):
-    """Show the edit form for a playlist."""
-    playlist = playlists.find_one({'_id': ObjectId(playlist_id)})
-    return render_template('playlists_edit.html', playlist=playlist)
 
 
 @app.route('/playlists/<playlist_id>', methods=['POST'])
