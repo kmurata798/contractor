@@ -3,9 +3,9 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 import os
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Contractor')
-client = MongoClient(host=f'{host}?retryWrites=false')
-# client = MongoClient(host=host)
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/contractor')
+
+client = MongoClient(host=host)
 db = client.get_default_database()
 playlists = db.playlists
 comments = db.comments
@@ -26,9 +26,15 @@ app = Flask(__name__)
 
 
 @app.route('/')
+def index():
+    """Show home"""
+    return render_template('home.html', msg='test')
+
+
+@app.route('/playlists')
 def playlists_index():
-    """Show all playlists."""
-    return render_template('playlists_index.html', playlists=playlists.find())
+    """show playlists"""
+    return render_template("playlists_index.html", playlists=playlists.find())
 
 
 @app.route('/playlists/new')

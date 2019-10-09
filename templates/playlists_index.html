@@ -3,8 +3,6 @@
 {% block content %}
 <h1>Playlists</h1>
 
-<!-- MAKING A GRID LIKE FORMAT
-    col-sm-3 means: On screens larger than a tablet, have this element take up three cells out of twelve that are the whole width of its parent element. Since 3/12 = 1/4-->
 <div class='row'>
     {% for playlist in playlists %}
     <div class='col-md-3'>
@@ -14,3 +12,5 @@
     {% endfor %}
 </div>
 {% endblock %}
+<!-- MAKING A GRID LIKE FORMAT-->
+<!--col-sm-3 means: On screens larger than a tablet, have this element take up three cells out of twelve that are the whole width of its parent element. Since 3/12 = 1/4-->
