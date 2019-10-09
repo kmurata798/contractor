@@ -28,7 +28,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """Show home"""
-    return render_template('home.html', msg='test')
+    return render_template('home.html', msg='WELCOME TO GAMEGO')
 
 
 @app.route('/playlists')
