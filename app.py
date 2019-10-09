@@ -5,7 +5,7 @@ import os
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27018/contractor')
 
-client = MongoClient(host=host)
+client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
 playlists = db.playlists
 comments = db.comments
