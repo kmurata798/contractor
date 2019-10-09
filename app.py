@@ -62,7 +62,9 @@ def playlists_submit():
 def playlists_show(playlist_id):
     """Show a single playlist."""
     playlist = playlists.find_one({'_id': ObjectId(playlist_id)})
-    return render_template('playlists_show.html', playlist=playlist)
+    playlist_comments = comments.find(
+        {'playlist_id': ObjectId(playlist_id)})  # adds all comments display
+    return render_template('playlists_show.html', playlist=playlist, comments=playlist_comments)
 
 
 @app.route('/playlists/<playlist_id>', methods=['POST'])
