@@ -2,20 +2,22 @@
     <legend>Edit game</legend>
     <!-- TITLE -->
     <div class='form-group'>
-        <label for='game-title'>Title</label><br>
+        <label for='game-title'>Title:</label><br>
         <input class='form-control' id='game-title' type='text' name='title' value='{{ game.title }}' />
     </div>
 
     <!-- DESCRIPTION -->
     <div class='form-group'>
-        <label for='description'>Description</label><br>
-        <input class='form-control' id='description' type='text' name='description' value='{{ game.description }}' />
+        <label for='price'>Price</label><br>
+        <p class='text-muted'>How much did the game cost:</p>
+        <input class='form-control' id='price' type='text' name='price' value='{{ game.price }}' />
     </div>
 
     <!-- VIDEO LINKS -->
     <div class='form-group'>
-        <label for='game-images'>Images</label><br />
+        <label for='game-images'>Images:</label><br />
         <p class='text-muted'>Add images. Separate with a newline.</p>
-        <textarea class='form-control' id='game-images' name='images' rows='10' /></textarea>
+        <input class='form-control' id='game-images' type='text' name='images' value='{{ game.images }}'
+            rows='10' /></textarea>
     </div>
 </fieldset>

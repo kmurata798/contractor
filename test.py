@@ -7,8 +7,7 @@ sample_game = {
     'title': 'Cat Images',
     'description': 'Cats acting weird',
     'images': [
-        'https://youtube.com/embed/hY7m5jjJ9mM',
-        'https://www.youtube.com/embed/CQ85sUNBK7w'
+        'https://upload.wikimedia.org/wikipedia/commons/e/ee/Grumpy_Cat_by_Gage_Skidmore.jpg'
     ]
 }
 sample_form_data = {
