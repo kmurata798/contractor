@@ -8,12 +8,6 @@
     <div class='col-md-3'>
         <h2><a href='/games/{{ item._id }}'>{{ item.title }}</a></h2>
         <small>{{ item.price }}</small>
-        <p>
-            <form method='POST' action='/games/{{game._id}}/delete/'>
-                <input type='hidden' name='_method' value='DELETE'>
-                <button class='btn btn-primary' type='submit'>Delete</button>
-            </form>
-        </p>
     </div>
     {% endfor %}
 </div>
