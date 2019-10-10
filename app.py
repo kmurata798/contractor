@@ -57,7 +57,7 @@ def games_submit():
     """Submit a new game."""
     game = {
         'title': request.form.get('title'),
-        'description': request.form.get('description'),
+        'price': request.form.get('price'),
         'images': request.form.get('images')
     }
     game_id = games.insert_one(game).inserted_id
@@ -78,7 +78,7 @@ def games_update(game_id):
     """Submit an edited game."""
     updated_game = {
         'title': request.form.get('title'),
-        'description': request.form.get('description'),
+        'price': request.form.get('price'),
         'images': request.form.get('images')
     }
     games.update_one(
