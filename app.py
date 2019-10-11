@@ -3,12 +3,16 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 import os
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27018/contractor')
+#HEROKU MONGO INFO
+# host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27018/contractor')
+# client = MongoClient(host=f'{host}?retryWrites=false')
+# db = client.get_default_database()
+# games = db.games
 
-client = MongoClient(host=f'{host}?retryWrites=false')
-db = client.get_default_database()
+#LOCAL mongo information
+client = MongoClient()
+db = client.contractor_project
 games = db.games
-comments = db.comments
 
 app = Flask(__name__)
 
@@ -28,7 +32,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """Show home"""
-    return render_template('home.html', msg='WELCOME TO GAMEGO')
+    return render_template('home.html', msg='WELCOME TO GAME-FOLIO!')
 
 
 @app.route('/games')
@@ -68,9 +72,8 @@ def games_submit():
 def game_show(game_id):
     """Show a single game."""
     game = games.find_one({'_id': ObjectId(game_id)})
-    game_comments = comments.find(
-        {'game_id': ObjectId(game_id)})  # adds all comments display
-    return render_template('games_show.html', game=game, comments=game_comments)
+ # adds all comments display
+    return render_template('games_show.html', game=game)
 
 
 @app.route('/games/<game_id>', methods=['POST'])

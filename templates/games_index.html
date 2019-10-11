@@ -7,7 +7,7 @@
     {% for item in game %}
     <div class='col-md-3'>
         <h2><a href='/games/{{ item._id }}'>{{ item.title }}</a></h2>
-        <small>{{ item.price }}</small>
+        <small>{{ '$' + item.price }}</small>
     </div>
     {% endfor %}
 </div>
