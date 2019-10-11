@@ -5,14 +5,13 @@ from app import app
 sample_game_id = ObjectId('5d55cffc4a3d4031f42827a3')
 sample_game = {
     'title': 'Cat Images',
-    'description': 'Cats acting weird',
-    'images': [
-        'https://upload.wikimedia.org/wikipedia/commons/e/ee/Grumpy_Cat_by_Gage_Skidmore.jpg'
-    ]
+    'price': 'Cats acting weird',
+    'images': 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Grumpy_Cat_by_Gage_Skidmore.jpg'
+    
 }
 sample_form_data = {
     'title': sample_game['title'],
-    'description': sample_game['description'],
+    'price': sample_game['price'],
     'images': '\n'.join(sample_game['images'])
 }
 
@@ -82,7 +81,7 @@ class gamesTests(TestCase):
         form_data = {'_method': 'DELETE'}
         result = self.client.post(
             f'/games/{sample_game_id}/delete', data=form_data)
-        self.assertEqual(result.status, '302 FOUND')
+        self.assertEqual(result.status, '308 PERMANENT REDIRECT')
         mock_delete.assert_called_with({'_id': sample_game_id})
 
 

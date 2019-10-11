@@ -92,6 +92,7 @@ def games_update(game_id):
 
 @app.route("/games/<game_id>/delete/", methods=["POST"])
 def game_delete(game_id):
+    '''deletes single game'''
     games.delete_one({"_id": ObjectId(game_id)})
     return redirect(url_for("games_index"))
 
