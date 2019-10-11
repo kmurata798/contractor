@@ -4,15 +4,15 @@ from bson.objectid import ObjectId
 import os
 
 #HEROKU MONGO INFO
-# host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27018/contractor')
-# client = MongoClient(host=f'{host}?retryWrites=false')
-# db = client.get_default_database()
-# games = db.games
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27018/contractor')
+client = MongoClient(host=f'{host}?retryWrites=false')
+db = client.get_default_database()
+games = db.games
 
 #LOCAL mongo information
-client = MongoClient()
-db = client.contractor_project
-games = db.games
+# client = MongoClient()
+# db = client.contractor_project
+# games = db.games
 
 app = Flask(__name__)
 
